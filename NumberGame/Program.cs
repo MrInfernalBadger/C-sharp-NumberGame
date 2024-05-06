@@ -4,52 +4,60 @@ namespace NumberGame
 {
     internal class Program
     {
-        private static Random rand = new Random();
+        private static  Random rand = new Random();
         private static int randomNumber;
+
         static void Main()
         {
             WelcomeScreen();
-            int guesses = RunGame();
-            Console.WriteLine($"Congratulation, you got it in {guesses} guess!");
+            RunGame(out int guesses);
+            Console.WriteLine($"Congratulations, you got it in {guesses} guesses!"); // Display different result messages
             Console.ReadLine();
         }
+
         static void WelcomeScreen()
         {
             Console.WriteLine("Welcome to the number guessing game!");
             Console.WriteLine("Press any key to continue");
         }
-        static int RunGame()
-        {
-            randomNumber = rand.Next(0, 1001);
-            int guess;
-            int numberOfGuesses = 0;
 
-            while (true)
+        static void RunGame(out int numberOfGuesses)
+        {
+            randomNumber = rand.Next(0, 101);
+            Console.WriteLine(randomNumber);
+            int guess = -1;
+            numberOfGuesses = 0;
+
+            while (guess != randomNumber)
             {
                 guess = GetGuess();
                 numberOfGuesses += 1;
-                if (guess == randomNumber)
-                {
-                    Console.WriteLine("You guessed correctly!");
-                    return numberOfGuesses;
-                }
-                else if (guess < randomNumber)
-                {
-                    Console.WriteLine("Too low!");
-                }
-                else if (guess > randomNumber)
-                {
-                    Console.WriteLine("Too high!");
-                }
+                AssessGuess(guess);
             }
         }
+
+        private static void AssessGuess(int guess)
+        {
+            if (guess == randomNumber)
+            {
+                Console.WriteLine("You guessed correctly!");
+            }
+            else if (guess < randomNumber)
+            {
+                Console.WriteLine("Too low!");
+            }
+            else if (guess > randomNumber)
+            {
+                Console.WriteLine("Too high!");
+            }
+        }
+
         static int GetGuess()
         {
-            int number;
             while (true)
             {
                 Console.WriteLine("Guess a number: ");
-                if (!int.TryParse(Console.ReadLine(), out number))
+                if (!int.TryParse(Console.ReadLine(), out int number))
                 {
                     Console.WriteLine("Please enter an integer.");
                 }
@@ -59,20 +67,12 @@ namespace NumberGame
                 }
                 Console.Clear();
             }
+
         }
     }
 }
 
 /*
- Welcome user and begin game
-        TODO add difficulty level
-Prompt for guess
-Say if high or low
-        TODO say if way too high/low depending on difficulty
-        TODO number range greater on higher difficulties
-Congratulate on correct guess
-Ask if play again
-
-
-
+TODO add difficulty level (greater range of numbers)
+TODO display different success message depending on guesses and difficulty
  */
