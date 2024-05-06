@@ -1,0 +1,7 @@
+C:\Users\Joshua\Desktop\Coding\C#\NumberGame\NumberGame\bin\Debug\NumberGame.exe.config
+C:\Users\Joshua\Desktop\Coding\C#\NumberGame\NumberGame\bin\Debug\NumberGame.exe
+C:\Users\Joshua\Desktop\Coding\C#\NumberGame\NumberGame\bin\Debug\NumberGame.pdb
+C:\Users\Joshua\Desktop\Coding\C#\NumberGame\NumberGame\obj\Debug\NumberGame.csproj.AssemblyReference.cache
+C:\Users\Joshua\Desktop\Coding\C#\NumberGame\NumberGame\obj\Debug\NumberGame.csproj.CoreCompileInputs.cache
+C:\Users\Joshua\Desktop\Coding\C#\NumberGame\NumberGame\obj\Debug\NumberGame.exe
+C:\Users\Joshua\Desktop\Coding\C#\NumberGame\NumberGame\obj\Debug\NumberGame.pdb
