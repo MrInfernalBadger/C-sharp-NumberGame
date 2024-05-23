@@ -13,7 +13,19 @@ namespace NumberGame
         {
             WelcomeScreen();
             RunGame(out int guesses);
-            Console.WriteLine($"Congratulations, you got it in {guesses} guesses!");
+            DisplaySuccess(guesses);
+        }
+
+        private static void DisplaySuccess(int guesses)
+        {
+            if (guesses == 1)
+            {
+                Console.WriteLine($"Congratulations, you got it in 1 guess!");
+            }
+            else
+            {
+                Console.WriteLine($"Congratulations, you got it in {guesses} guesses!");
+            }
             Console.ReadLine();
         }
 
@@ -41,21 +53,12 @@ namespace NumberGame
                 numberOfGuesses += 1;
                 TooHighTooLow(guess);
 
-                if (guess > lowestClose && guess < randomNumber)
-                {
-                    lowestClose = guess;
-                }
-
-                if (guess < highestClose && guess > randomNumber)
-                {
-                    highestClose = guess;
-                }
             }
         }
 
         private static void TooHighTooLow(int guess)
         {
-            if (guess == -1){}
+            if (guess == -1){} // if no guesses have been made, do not display message
             else if (guess < randomNumber)
             {
                 Console.WriteLine($"{guess} is too low!");
@@ -79,6 +82,15 @@ namespace NumberGame
                 }
                 else
                 {
+                    if (number > lowestClose && number < randomNumber)
+                    {
+                        lowestClose = number;
+                    }
+
+                    if (number < highestClose && number > randomNumber)
+                    {
+                        highestClose = number;
+                    }
                     return number;
                 }
 
